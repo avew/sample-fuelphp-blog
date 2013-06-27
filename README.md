@@ -1,3 +1,9 @@
+This tutorial by Philip Sturgeon
+1.http://net.tutsplus.com/tutorials/php/getting-started-with-the-fuel-php-framework/
+2.http://net.tutsplus.com/tutorials/php/build-an-admin-panel-with-the-fuel-php-framework/
+
+fix to Fuelphp 1.6.1 
+
 #FuelPHP
 
 * Version: 1.6.1.
