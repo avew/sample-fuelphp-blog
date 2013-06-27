@@ -1,16 +1,16 @@
 <?php
 
-class Model_Post extends \Orm\Model {
+use Orm\Model;
 
-    protected static $_belongs_to = array('user');
-    protected static $_has_many = array('comments');
+class Model_Comment extends Model {
+    protected static $_belongs_to = array('post', 'user');
     protected static $_properties = array(
         'id',
-        'title',
-        'slug',
-        'summary',
-        'body',
-        'user_id',
+        'name',
+        'email',
+        'website',
+        'message',
+        'post_id',
         'created_at',
         'updated_at',
     );
@@ -27,11 +27,11 @@ class Model_Post extends \Orm\Model {
 
     public static function validate($factory) {
         $val = Validation::forge($factory);
-        $val->add_field('title', 'Title', 'required|max_length[255]');
-        $val->add_field('slug', 'Slug', 'required|max_length[255]');
-        $val->add_field('summary', 'Summary', 'required');
-        $val->add_field('body', 'Body', 'required');
-        $val->add_field('user_id', 'User Id', 'required|valid_string[numeric]');
+        $val->add_field('name', 'Name', 'required|max_length[255]');
+        $val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
+        $val->add_field('website', 'Website', 'required|max_length[255]');
+        $val->add_field('message', 'Message', 'required');
+        $val->add_field('post_id', 'Post Id', 'required|valid_string[numeric]');
 
         return $val;
     }

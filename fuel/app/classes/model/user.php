@@ -1,7 +1,9 @@
 <?php
 
 class Model_User extends \Orm\Model {
-    protected static $_hash_many = array('posts');
+
+    protected static $_hash_many = array('posts', 'comments');
+    protected static $_belongs_to = array('user');
     protected static $_properties = array(
         'id',
         'username',
